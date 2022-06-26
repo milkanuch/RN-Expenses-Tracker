@@ -3,7 +3,9 @@ import { Colors } from "../../constants/Colors";
 
 export default StyleSheet.create({
     container: { 
-        padding: 24,
+        paddingHorizontal: 24,
+        paddingTop: 24,
+        paddingBottom: 0,
         backgroundColor: Colors.primary700,
         flex: 1
     }

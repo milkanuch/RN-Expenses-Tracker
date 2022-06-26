@@ -20,8 +20,8 @@ export default function TabNavigation(){
                 options={{
                     title: 'Recent Expenses',
                     tabBarLabel: 'Recent',
-                    tabBarIcon: () => (
-                        <Ionicons size={24} name="hourglass" color={'#e36b94'} />
+                    tabBarIcon: ({ color,size }) => (
+                        <Ionicons name="hourglass" size={size} color={color} />
                     )
                 }}
             />
@@ -31,8 +31,8 @@ export default function TabNavigation(){
                 options={{
                     title: 'All Expenses',
                     tabBarLabel: 'All',
-                    tabBarIcon: () => (
-                        <Ionicons size={24} name="calendar" color={'#e36b94'} />
+                    tabBarIcon: ({ color,size }) => (
+                        <Ionicons name="calendar" size={size} color={color} />
                     )
                 }}
             />

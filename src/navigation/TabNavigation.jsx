@@ -4,6 +4,7 @@ import { Colors } from "../constants/Colors";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ExpensesScreen from "../screens/Expenses/ExpensesScreen";
 import RecentExpenses from "../screens/RecentExpenses/RecentExpensesScreen";
+import IconButton from "../components/UI/IconButton/IconButton";
 
 const Tab = createBottomTabNavigator();
 export default function TabNavigation(){
@@ -12,7 +13,16 @@ export default function TabNavigation(){
             headerStyle: { backgroundColor: Colors.primary500 },
             headerTintColor: '#f0f0f0',
             tabBarStyle: { backgroundColor: Colors.primary500 },
-            tabBarActiveTintColor: Colors.accent500
+            tabBarActiveTintColor: Colors.accent500,
+            headerRight: ({tintColor}) =>
+                (
+                    <IconButton 
+                        icon="add" 
+                        size={24} 
+                        color="#fff" 
+                        onPress={() => {console.log("Plus")}} />
+                )
+            
         }}>
             <Tab.Screen 
                 name="RecentExpenses" 

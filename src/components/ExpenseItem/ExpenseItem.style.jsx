@@ -37,5 +37,8 @@ export default StyleSheet.create({
     },
     amount: { 
         color: Colors.primary400
+    },
+    pressed:{
+        opacity: 0.75
     }
 });

@@ -9,21 +9,16 @@ import IconButton from "../components/UI/IconButton/IconButton";
 const Tab = createBottomTabNavigator();
 export default function TabNavigation(){
     return ( 
-        <Tab.Navigator screenOptions={{
+        <Tab.Navigator screenOptions={ ({ navigation }) => ({
             headerStyle: { backgroundColor: Colors.primary500 },
             headerTintColor: '#f0f0f0',
             tabBarStyle: { backgroundColor: Colors.primary500 },
             tabBarActiveTintColor: Colors.accent500,
-            headerRight: ({tintColor}) =>
-                (
-                    <IconButton 
-                        icon="add" 
-                        size={24} 
-                        color="#fff" 
-                        onPress={() => {console.log("Plus")}} />
+            headerRight: ({tintColor}) => (
+                    <IconButton icon="add" size={24} color={tintColor}  onPress={() => {navigation.navigate('ManageExpense');}} />
                 )
-            
-        }}>
+            })
+        }>
             <Tab.Screen 
                 name="RecentExpenses" 
                 component={ RecentExpenses } 

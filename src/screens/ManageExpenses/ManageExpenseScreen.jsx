@@ -1,11 +1,13 @@
 import { useContext, useLayoutEffect } from "react";
-import { View } from "react-native";
 import { Colors } from "../../constants/Colors";
+import { ExpensesContext } from "../../store/expenses-context";
 
 import CustomButton from "../../components/UI/CustomButton/CustomButton";
 import styles from "./ManageExpensesScreen.style";
 import IconButton from "../../components/UI/IconButton/IconButton";
-import { ExpensesContext } from "../../store/expenses-context";
+import ExpenseManage from "../../components/ExpenseManage/ExpenseManage";
+import { View } from "react-native";
+
 
 export default function ManageExpenseScreen({ route, navigation }) {
     const id = route.params?.expenseId;
@@ -47,6 +49,7 @@ export default function ManageExpenseScreen({ route, navigation }) {
 
     return (
         <View style={styles.container}>
+            <ExpenseManage />
             <View style={styles.buttonContainer}>
                 <CustomButton style={styles.buttonStyle} mode="flat" onPress={cancelHandler} >Cancel</CustomButton>
                 <CustomButton style={styles.buttonStyle} onPress={confirmHandler}>{isEditing ? 'Update' : 'Add'}</CustomButton>

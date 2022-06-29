@@ -9,8 +9,8 @@ export default function RecentExpenses() {
     const recentExpenses = expensesContext.expenses.filter((expense) => { 
         const sevenDaysAgo = getDateMinusDays(new Date(),7);
 
-        return expense.date > sevenDaysAgo;
+        return (expense.date > sevenDaysAgo) && (expense.date <= new Date()) ;
     });
 
-    return <ExpensesOutput expenses={recentExpenses} expensesPeriod="Last 7 Days" />
+    return <ExpensesOutput expenses={recentExpenses} expensesPeriod="Last 7 Days" fallbackText="No expenses registred for last 7 days" />
 }

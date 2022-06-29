@@ -4,5 +4,5 @@ import { ExpensesContext } from "../../store/expenses-context";
 
 export default function ExpensesScreen() {
 	const expensesContext = useContext(ExpensesContext);
-	return <ExpensesOutput expenses={expensesContext.expenses} expensesPeriod="total" />
+	return <ExpensesOutput expenses={expensesContext.expenses} expensesPeriod="Total" fallbackText="No registred expenses found" />
 }   

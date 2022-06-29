@@ -21,5 +21,11 @@ export default StyleSheet.create({
     inputMultiLine: { 
         minHeight: 100,
         textAlignVertical: 'top',
+    },
+    invalidLabel: { 
+        color: Colors.error500
+    },
+    invalidInput: { 
+        backgroundColor: Colors.error50
     }
 });

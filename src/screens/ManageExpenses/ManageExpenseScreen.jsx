@@ -1,19 +1,18 @@
 import { useContext, useLayoutEffect } from "react";
 import { Colors } from "../../constants/Colors";
 import { ExpensesContext } from "../../store/expenses-context";
+import { View } from "react-native";
 
-import CustomButton from "../../components/UI/CustomButton/CustomButton";
 import styles from "./ManageExpensesScreen.style";
 import IconButton from "../../components/UI/IconButton/IconButton";
 import ExpenseManage from "../../components/ExpenseManage/ExpenseManage";
-import { View } from "react-native";
 
 
 export default function ManageExpenseScreen({ route, navigation }) {
     const id = route.params?.expenseId;
     const isEditing = !!id;
     const expensesContext = useContext(ExpensesContext);
-
+    const selectedExpense = expensesContext.expenses.find(expense => expense.id === id);
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -45,6 +44,7 @@ export default function ManageExpenseScreen({ route, navigation }) {
                 onCancel={cancelHandler} 
                 submitButtonLabel={isEditing ? 'Update' : 'Add'} 
                 onSubmit={confirmHandler}
+                defaultValues={selectedExpense}
             />
             {
                 isEditing && ( 

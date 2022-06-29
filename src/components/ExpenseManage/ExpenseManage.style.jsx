@@ -27,5 +27,10 @@ export default StyleSheet.create({
     buttonStyle: { 
         minWidth: 120,
         marginHorizontal: 8
+    },
+    errorText: { 
+        textAlign: 'center',
+        color: Colors.error500,
+        margin: 8
     }
 });

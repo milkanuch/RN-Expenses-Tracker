@@ -14,13 +14,4 @@ export default StyleSheet.create({
         borderTopColor: Colors.primary200,
         alignItems: 'center',
     },
-    buttonContainer: { 
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    buttonStyle: { 
-        minWidth: 120,
-        marginHorizontal: 8
-    }
 });

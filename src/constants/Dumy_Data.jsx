@@ -7,7 +7,7 @@ export const DUMMY_EXPENSES = [ {
         id: 'e2',
         description: 'A pair of trousers',
         amount: 4.44,
-        date: new Date('2022-01-05')
+        date: new Date('2022-06-05')
     },{
         id: 'e3',
         description: 'Study paid',

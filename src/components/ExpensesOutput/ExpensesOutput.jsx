@@ -7,8 +7,8 @@ import styles from "./ExpensesOutput.style";
 export default function ExpensesOutput({ expenses,expensesPeriod, }) {
     return (
         <View style={ styles.container }>
-            <ExpensesSummary expenses={DUMMY_EXPENSES} period={expensesPeriod} />
-            <ExpensesList expenses={DUMMY_EXPENSES} />
+            <ExpensesSummary expenses={expenses} period={expensesPeriod} />
+            <ExpensesList expenses={expenses} />
         </View>
     );
 }

@@ -6,7 +6,7 @@ import { View } from "react-native";
 import styles from "./ManageExpensesScreen.style";
 import IconButton from "../../components/UI/IconButton/IconButton";
 import ExpenseManage from "../../components/ExpenseManage/ExpenseManage";
-import storeExpense from "../../utils/https/https";
+import storeExpense, { delExpense, updateExpense, upgradeExpense } from "../../utils/https/https";
 
 
 export default function ManageExpenseScreen({ route, navigation }) {
@@ -23,6 +23,7 @@ export default function ManageExpenseScreen({ route, navigation }) {
     
     function deleteExpense(){
         expensesContext.removeExpense(id);
+        delExpense(id);
         navigation.goBack();
     }
 
@@ -30,12 +31,13 @@ export default function ManageExpenseScreen({ route, navigation }) {
         navigation.goBack();
     }
 
-    function confirmHandler(expenseData) {
-        if(isEditing){
-            expensesContext.updateExpense(id,expenseData);
+    async function confirmHandler(expenseData) {
+        if(isEditing) {
+            expensesContext.updateExpense(id, expenseData);
+            await upgradeExpense(id, expenseData);
         } else {
-            storeExpense(expenseData); 
-            expensesContext.addExpense(expenseData);
+            const id = await storeExpense(expenseData); 
+            expensesContext.addExpense({...expenseData, id: id});
         }
         navigation.goBack();
     }

@@ -6,6 +6,7 @@ import { View } from "react-native";
 import styles from "./ManageExpensesScreen.style";
 import IconButton from "../../components/UI/IconButton/IconButton";
 import ExpenseManage from "../../components/ExpenseManage/ExpenseManage";
+import storeExpense from "../../utils/https/https";
 
 
 export default function ManageExpenseScreen({ route, navigation }) {
@@ -32,7 +33,8 @@ export default function ManageExpenseScreen({ route, navigation }) {
     function confirmHandler(expenseData) {
         if(isEditing){
             expensesContext.updateExpense(id,expenseData);
-        } else { 
+        } else {
+            storeExpense(expenseData); 
             expensesContext.addExpense(expenseData);
         }
         navigation.goBack();
